@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page">
+    <div class="card">
+        <h1>🚗 Car Price Prediction</h1>
+        <p class="subtitle">Predict the resale value of your car instantly</p>
+
+        <form action="/predict" method="post">
+
+            <div class="grid">
+                <div>
+                    <label>Year of Purchase</label>
+                    <input type="number" name="Year" placeholder="e.g. 2018" required>
+                </div>
+
+                <div>
+                    <label>Present Price (Lakhs)</label>
+                    <input type="number" step="0.01" name="Present_Price" placeholder="e.g. 5.5" required>
+                </div>
+
+                <div>
+                    <label>Kilometers Driven</label>
+                    <input type="number" name="Kms_Driven" placeholder="e.g. 45000" required>
+                </div>
+
+                <div>
+                    <label>Fuel Type</label>
+                    <select name="Fuel_Type" required>
+                        <option value="0">Petrol</option>
+                        <option value="1">Diesel</option>
+                        <option value="2">CNG</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Transmission</label>
+                    <select name="Transmission" required>
+                        <option value="Manual">Manual</option>
+                        <option value="Automatic">Automatic</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Number of Owners</label>
+                    <input type="number" name="Owner" min="0" max="3" required>
+                </div>
+
+                <div>
+                    <label>Seller Type</label>
+                    <select name="Seller_Type_Individual" required>
+                        <option value="1">Individual</option>
+                        <option value="0">Dealer</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
