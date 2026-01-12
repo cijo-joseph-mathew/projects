@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Approval Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Loan Approval Prediction</h2>
+
+    <form action="/predict" method="post">
+        <select name="Gender"><option value="1">Male</option><option value="0">Female</option></select>
+        <select name="Married"><option value="1">Married</option><option value="0">Single</option></select>
+        <input type="text" name="Dependents" placeholder="Dependents (0/1/2)" required>
+        <select name="Education"><option value="1">Graduate</option><option value="0">Not Graduate</option></select>
+        <select name="Self_Employed"><option value="1">Yes</option><option value="0">No</option></select>
+
+        <input type="text" name="ApplicantIncome" placeholder="Applicant Income" required>
+        <input type="text" name="CoapplicantIncome" placeholder="Coapplicant Income" required>
+        <input type="text" name="LoanAmount" placeholder="Loan Amount" required>
+        <input type="text" name="Loan_Amount_Term" placeholder="Loan Term" required>
+        <input type="text" name="Credit_History" placeholder="Credit History (0/1)" required>
+
+        <select name="Property_Area">
+            <option value="2">Urban</option>
+            <option value="1">Semiurban</option>
+            <option value="0">Rural</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</div>
+
+</body>
+</html>

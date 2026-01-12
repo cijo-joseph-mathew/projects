@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Boston Housing Price Prediction</h2>
+
+    <form action="/predict" method="post">
+        <input type="text" name="CRIM" placeholder="Crime Rate" required>
+        <input type="text" name="ZN" placeholder="Residential Land %" required>
+        <input type="text" name="INDUS" placeholder="Industrial Area %" required>
+        <input type="text" name="CHAS" placeholder="Charles River (0 or 1)" required>
+        <input type="text" name="NOX" placeholder="NOX Concentration" required>
+        <input type="text" name="RM" placeholder="Avg Rooms" required>
+        <input type="text" name="AGE" placeholder="Old Houses %" required>
+        <input type="text" name="DIS" placeholder="Distance to Employment" required>
+        <input type="text" name="RAD" placeholder="Highway Accessibility" required>
+        <input type="text" name="TAX" placeholder="Property Tax" required>
+        <input type="text" name="PTRATIO" placeholder="Pupil-Teacher Ratio" required>
+        <input type="text" name="B" placeholder="Black Population Index" required>
+        <input type="text" name="LSTAT" placeholder="Lower Status %" required>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</div>
+
+</body>
+</html>
